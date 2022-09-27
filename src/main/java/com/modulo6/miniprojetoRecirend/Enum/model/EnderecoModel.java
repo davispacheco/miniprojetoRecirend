@@ -1,4 +1,4 @@
-package com.modulo6.miniprojetoRecirend.model;
+package com.modulo6.miniprojetoRecirend.Enum.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

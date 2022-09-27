@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TrocaService {
@@ -15,11 +16,6 @@ public class TrocaService {
 
 
     public TrocaModel registraTroca(TrocaModel trocaModel){
-        trocaModel.getTrocaId();
-        trocaModel.getMarca();
-        trocaModel.getCodigoEmbalagem();
-        trocaModel.getDataDeCadastro();
-
         return trocaRepository.save(trocaModel);
 
     }
@@ -28,12 +24,11 @@ public class TrocaService {
         return trocaRepository.findAll();
     }
 
+    public Optional<TrocaModel> buscaId(long id){
+        return trocaRepository.findById(id);
+    }
+
     public TrocaModel alteraNovaTroca(TrocaModel trocaModel){
-
-        trocaModel.getMarca();
-        trocaModel.getDataDeCadastro();
-        trocaModel.getCodigoEmbalagem();
-
         return trocaRepository.save(trocaModel);
 
     }

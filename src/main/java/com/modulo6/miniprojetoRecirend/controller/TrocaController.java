@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TrocaController {
@@ -29,7 +30,12 @@ public class TrocaController {
 
     }
 
-    //Buscar por CPF do Usuário//
+    //Buscar trocas por ID //
+    @GetMapping(path = "/troca/{id}")
+    public ResponseEntity<Optional<TrocaModel>> buscarIdTroca(@PathVariable long id){
+        return ResponseEntity.ok (trocaService.buscaId(id));
+
+    }
 
     //Alterar a troca//
 
