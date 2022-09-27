@@ -1,4 +1,4 @@
-package com.modulo6.miniprojetoRecirend.enuns;
+package com.modulo6.miniprojetoRecirend.Enum;
 
 public enum Marca {
     CHEETOS,
