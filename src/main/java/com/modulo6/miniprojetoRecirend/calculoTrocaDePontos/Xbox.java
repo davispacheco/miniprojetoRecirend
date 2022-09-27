@@ -1,4 +1,10 @@
 package com.modulo6.miniprojetoRecirend.calculoTrocaDePontos;
 
-public class Xbox {
+import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
+
+public class Xbox implements ICalculoTroca{
+    @Override
+    public Long calculoTrocaPontos(UsuarioModel usuarioModel) {
+        return null;
+    }
 }
