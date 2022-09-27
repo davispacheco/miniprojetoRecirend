@@ -1,4 +1,4 @@
-package com.modulo6.miniprojetoRecirend.Enum.model;
+package com.modulo6.miniprojetoRecirend.model;
 
 import com.modulo6.miniprojetoRecirend.Enum.Marca;
 import lombok.*;

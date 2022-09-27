@@ -1,6 +1,6 @@
 package com.modulo6.miniprojetoRecirend.controller;
 
-import com.modulo6.miniprojetoRecirend.Enum.model.TrocaModel;
+import com.modulo6.miniprojetoRecirend.model.TrocaModel;
 import com.modulo6.miniprojetoRecirend.service.TrocaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

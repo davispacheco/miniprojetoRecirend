@@ -1,6 +1,6 @@
 package com.modulo6.miniprojetoRecirend.service;
 
-import com.modulo6.miniprojetoRecirend.Enum.model.TrocaModel;
+import com.modulo6.miniprojetoRecirend.model.TrocaModel;
 import com.modulo6.miniprojetoRecirend.repository.TrocaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
