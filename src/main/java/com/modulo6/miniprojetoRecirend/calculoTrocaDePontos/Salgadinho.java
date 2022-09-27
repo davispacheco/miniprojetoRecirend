@@ -5,6 +5,8 @@ import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 public class Salgadinho implements ICalculoTroca{
     @Override
     public Long calculoTrocaPontos(UsuarioModel usuarioModel) {
-        return setPontosUsuario(usuarioModel.getPontosUsuario-3000);
+        Long resultado = usuarioModel.getPontuacao()-3000L;
+        usuarioModel.setPontuacao(resultado);
+        return usuarioModel.getPontuacao();
     }
 }

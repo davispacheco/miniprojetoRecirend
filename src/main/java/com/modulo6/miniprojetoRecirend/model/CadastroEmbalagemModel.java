@@ -36,5 +36,8 @@ public class CadastroEmbalagemModel implements Serializable {
     private Marca marca;
 
     @NotNull
-    private LocalDate dataDoCadastro;
+    private LocalDate dataDoCadastro = LocalDate.now();
+
+    @ManyToOne
+    private UsuarioModel usuarioModel;
 }

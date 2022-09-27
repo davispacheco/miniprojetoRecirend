@@ -24,6 +24,7 @@ public class UsuarioService {
     }
 
     public UsuarioModel cadastrar(UsuarioModel usuarioModel) {
+        usuarioModel.setPontuacao(0L);
         return usuarioRepository.save(usuarioModel);
     }
 
@@ -34,4 +35,5 @@ public class UsuarioService {
     public void deletar(Long id) {
         usuarioRepository.deleteById(id);
     }
+
 }

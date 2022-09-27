@@ -5,6 +5,7 @@ import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 public class Headset implements ICalculoTroca{
     @Override
     public Long calculoTrocaPontos(UsuarioModel usuarioModel) {
-        return setPontosUsuario(usuarioModel.getPontosUsuario-37500);
+        Long resultado = usuarioModel.getPontuacao()-37500L;
+        return resultado;
     }
 }

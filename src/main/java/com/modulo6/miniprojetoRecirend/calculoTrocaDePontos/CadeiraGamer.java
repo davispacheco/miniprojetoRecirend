@@ -5,6 +5,7 @@ import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 public class CadeiraGamer implements ICalculoTroca{
     @Override
     public Long calculoTrocaPontos(UsuarioModel usuarioModel) {
-        return setPontosUsuario(usuarioModel.getPontosUsuario-75000);
+        Long resultado = usuarioModel.getPontuacao()-75000L;
+        return resultado;
     }
 }

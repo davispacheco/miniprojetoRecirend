@@ -1,12 +1,13 @@
 package com.modulo6.miniprojetoRecirend.exception;
 
-import com.modulo5.catalisa4desafio3.DTO.MensagensErroDTO;
+import com.modulo6.miniprojetoRecirend.DTO.MensagensErroDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,11 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import java.util.NoSuchElementException;
 
 @ControllerAdvice
 public class ExceptionHandlerRecirend extends ResponseEntityExceptionHandler {
@@ -38,6 +42,11 @@ public class ExceptionHandlerRecirend extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, new MensagensErroDTO(mensagem), headers, HttpStatus.BAD_REQUEST, request);
     }
 
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<String> exceptionHandlerContaNaoCadastrada(DataIntegrityViolationException ex){
+        return new ResponseEntity<>("Número de série da embalagem já cadastrado.", HttpStatus.CONFLICT);
+    }
+
     @Getter
     @Setter
     @NoArgsConstructor
@@ -47,4 +56,6 @@ public class ExceptionHandlerRecirend extends ResponseEntityExceptionHandler {
         private String mensagemDoUsuario;
         private String mensagemDoDev;
     }
+
+
 }

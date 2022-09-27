@@ -41,4 +41,9 @@ public class UsuarioModel {
         this.senha = senha;
     }
 
+    public void acrescimoPontuacao(){
+        Long  pontuacaoTotal = getPontuacao()+1500;
+        setPontuacao(pontuacaoTotal);
+    }
+
 }

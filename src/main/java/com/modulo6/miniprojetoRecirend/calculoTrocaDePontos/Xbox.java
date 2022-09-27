@@ -5,6 +5,7 @@ import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 public class Xbox implements ICalculoTroca{
     @Override
     public Long calculoTrocaPontos(UsuarioModel usuarioModel) {
-        return null;
+        Long resultado = usuarioModel.getPontuacao()-285000L;
+        return resultado;
     }
 }

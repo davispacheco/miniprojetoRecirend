@@ -17,9 +17,9 @@ public class TrocaController {
     private TrocaService trocaService;
 
     // Cadastrar a troca//
-    @PostMapping(path = "/troca")
-    public ResponseEntity <TrocaModel> cadastraTroca(@RequestBody TrocaModel cadastreTroca) {
-        TrocaModel novaTroca = trocaService.registraTroca(cadastreTroca);
+    @PostMapping(path = "/troca/{id}")
+    public ResponseEntity <TrocaModel> cadastraTroca(@RequestBody TrocaModel cadastreTroca,@PathVariable Long id) {
+        TrocaModel novaTroca = trocaService.registraTroca(cadastreTroca,id);
         return new ResponseEntity<>(novaTroca, HttpStatus.CREATED);
     }
 

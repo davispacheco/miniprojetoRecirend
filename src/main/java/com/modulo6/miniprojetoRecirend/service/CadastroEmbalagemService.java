@@ -15,6 +15,9 @@ public class CadastroEmbalagemService {
     @Autowired
     CadastroEmbalagemRepository repository;
 
+    @Autowired
+    UsuarioService service;
+
     public List<CadastroEmbalagemModel> buscarCadastros(){
         return repository.findAll();
     }
@@ -23,10 +26,12 @@ public class CadastroEmbalagemService {
         return repository.findById(id);
     }
 
-    public CadastroEmbalagemModel cadastrar(CadastroEmbalagemModel cadastroEmbalagemModel, UsuarioModel usuario){
-        //buscar usuario
+    public CadastroEmbalagemModel cadastrar(CadastroEmbalagemModel cadastroEmbalagemModel, Long id){
 
-        //como settar os pontos para o usuário ?????
+       Optional<UsuarioModel> result =  service.buscarPorId(id);
+        result.get().acrescimoPontuacao();
+       cadastroEmbalagemModel.setUsuarioModel(result.get());
+
         return repository.save(cadastroEmbalagemModel);
     }
 }
