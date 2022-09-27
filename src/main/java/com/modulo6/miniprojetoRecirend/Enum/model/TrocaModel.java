@@ -1,8 +1,5 @@
 package com.modulo6.miniprojetoRecirend.Enum.model;
 
-
-
-
 import com.modulo6.miniprojetoRecirend.Enum.Marca;
 import lombok.*;
 import javax.persistence.*;
@@ -31,6 +28,5 @@ public class TrocaModel {
 
     @Column(length = 15, nullable = false)
     private LocalDate dataDeCadastro;
-
 
 }
