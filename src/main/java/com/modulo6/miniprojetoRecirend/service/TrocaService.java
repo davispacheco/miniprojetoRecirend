@@ -15,23 +15,25 @@ public class TrocaService {
     private TrocaRepository trocaRepository;
 
 
+    //cadastrar a troca//
     public TrocaModel registraTroca(TrocaModel trocaModel){
         return trocaRepository.save(trocaModel);
 
     }
-
+    //buscar todas as trocas//
     public List<TrocaModel> todaAsTroca(){
         return trocaRepository.findAll();
     }
-
+    //buscar trocas pot Id//
     public Optional<TrocaModel> buscaId(long id){
         return trocaRepository.findById(id);
     }
-
+    //alterar dados da troca//
     public TrocaModel alteraNovaTroca(TrocaModel trocaModel){
         return trocaRepository.save(trocaModel);
 
     }
+    //Deletar a troca pot Id//
     public void deleteTrocaId(Long id) {
         trocaRepository.deleteById(id);
     }

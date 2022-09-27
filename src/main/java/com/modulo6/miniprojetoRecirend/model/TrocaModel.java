@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@Data
 @Entity
 @Table(name = "troca")
 public class TrocaModel {
@@ -21,7 +20,7 @@ public class TrocaModel {
 
     @Column(name = "Marca")
     @Enumerated(value = EnumType.STRING)
-    private Marca marca ;
+    private Marca marca;
 
     @Column(length = 30, nullable = false)
     private String codigoEmbalagem;
