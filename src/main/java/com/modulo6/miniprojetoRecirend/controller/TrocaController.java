@@ -46,13 +46,11 @@ public class TrocaController {
 
     }
 
-
     //Deletar a troca//
     @DeleteMapping(path = "/troca/{id}")
     public ResponseEntity<Void>deletarTroca(@PathVariable long id) {
         trocaService.deleteTrocaId(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
-
 
 }
