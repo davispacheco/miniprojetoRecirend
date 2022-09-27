@@ -1,5 +1,6 @@
 package com.modulo6.miniprojetoRecirend.model;
 
+import com.modulo6.miniprojetoRecirend.Enum.Marca;
 import com.modulo6.miniprojetoRecirend.Enum.PontosDeColeta;
 import com.modulo6.miniprojetoRecirend.Enum.ProdutosTroca;
 import lombok.*;
@@ -14,8 +15,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-@Data
 @Validated
+@Data
 @Entity
 @Table(name = "troca")
 public class TrocaModel {
@@ -32,10 +33,10 @@ public class TrocaModel {
     @Enumerated(EnumType.STRING)
     private PontosDeColeta pontosDeColeta;
 
-//    @Column(name = "marca")
+//    @Column(name = "Marca")
 //    @Enumerated(value = EnumType.STRING)
 //    private Marca marca ;
-
+//
 //    @Column(length = 30, nullable = false)
 //    private String codigoEmbalagem;
 
@@ -43,6 +44,6 @@ public class TrocaModel {
     private LocalDate dataDeCadastro = LocalDate.now();
 
     @ManyToOne
-    private UsuarioModel usuario;
+    private UsuarioModel usuarioModel;
 
 }

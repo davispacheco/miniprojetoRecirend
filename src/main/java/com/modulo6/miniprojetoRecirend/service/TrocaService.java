@@ -17,8 +17,22 @@ public class TrocaService {
     private TrocaRepository trocaRepository;
 
     @Autowired
+<<<<<<< Updated upstream
     private UsuarioService service;
 
+=======
+    UsuarioService service;
+
+
+    public TrocaModel registraTroca(TrocaModel trocaModel, Long id){
+
+        TrocaFactory troca = new TrocaFactory();
+        Optional<UsuarioModel> result =  service.buscarPorId(id);
+        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get());
+        result.get().setPontuacao(pontuacao);
+
+        return trocaRepository.save(trocaModel);
+>>>>>>> Stashed changes
 
     public TrocaModel registraTroca(TrocaModel trocaModel,Long id){
         TrocaFactory troca = new TrocaFactory();
