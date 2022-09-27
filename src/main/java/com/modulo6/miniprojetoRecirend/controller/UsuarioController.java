@@ -1,5 +1,7 @@
 package com.modulo6.miniprojetoRecirend.controller;
 
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioDTO;
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaDTO;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +20,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<UsuarioModel>> buscarTodosUsuarios() {
+    public ResponseEntity<List<UsuarioRespostaDTO>> buscarTodosUsuarios() {
         return ResponseEntity.ok(usuarioService.buscarTodos());
     }
 
@@ -27,13 +30,15 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioModel> cadastrarUsuario(@RequestBody UsuarioModel usuarioModel) {
-        return new ResponseEntity<>(usuarioService.cadastrar(usuarioModel), HttpStatus.CREATED);
+    public ResponseEntity<UsuarioRespostaDTO> cadastrarUsuario(@Valid @RequestBody UsuarioDTO dto) {
+UsuarioModel usuario = usuarioService.cadastrar(dto.converterParaObjeto());
+        return new ResponseEntity<>(UsuarioRespostaDTO.converterParaDTO(usuario), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<UsuarioModel> alterarUsuario(@RequestBody UsuarioModel usuarioModel, @PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.alterar(usuarioModel));
+    public ResponseEntity<UsuarioRespostaDTO> alterarUsuario(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
+        UsuarioModel usuario = usuarioService.alterar(dto.converterParaObjeto());
+        return ResponseEntity.ok(UsuarioRespostaDTO.converterParaDTO(usuario));
     }
 
     @DeleteMapping(path = " /{id}")
