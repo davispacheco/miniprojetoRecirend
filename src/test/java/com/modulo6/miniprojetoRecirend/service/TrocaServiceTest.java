@@ -43,7 +43,7 @@ class TrocaServiceTest {
     @Test
     void todaAsTroca() {
         List<TrocaModel> listTroca = new ArrayList<>();
-        Mockito.when(trocaRepository.findAll(listTroca)).thenReturn(listTroca);
+        Mockito.when(trocaRepository.findAll()).thenReturn(listTroca);
         List<TrocaModel> listTest = new ArrayList<>();
         listTest = trocaService.todaAsTroca();
         Assertions.assertEquals(listTest, listTroca);

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface EmbalagemRepository extends JpaRepository<EmbalagemModel,Long> {
-    Object findAll(List<EmbalagemModel> todasEmbalagens);
+
 }

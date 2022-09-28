@@ -22,7 +22,7 @@ class EmbalagemServiceTest {
     private EmbalagemService service;
 
     @MockBean
-    private EmbalagemRepository embalagemRepository;
+    private EmbalagemRepository repository;
 
     @MockBean
     private UsuarioService usuarioService;
@@ -38,10 +38,10 @@ class EmbalagemServiceTest {
 
     @Test
     void buscarCadastros() {
-        List<EmbalagemModel> todasEmbalagens = new ArrayList<>();
-        Mockito.when(embalagemRepository.findAll(todasEmbalagens)).thenReturn(todasEmbalagens);
+        List<EmbalagemModel> embalagens = new ArrayList<>();
+        Mockito.when(repository.findAll()).thenReturn(embalagens);
         List<EmbalagemModel> listaDeEmbalagens = service.buscarCadastros();
-        Assertions.assertEquals(listaDeEmbalagens,todasEmbalagens);
+        Assertions.assertEquals(listaDeEmbalagens,embalagens);
     }
 
     @Test
