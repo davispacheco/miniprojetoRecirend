@@ -43,9 +43,9 @@ class TrocaServiceTest {
 
     @Test
     void registraTroca() {
-        Mockito.when(trocaRepository.save(troca)).thenReturn(troca);
+        Mockito.when(trocaRepository.existsById(Mockito.anyLong())).thenReturn(false);
         trocaService.registraTroca(troca);
-        Mockito.verify(trocaRepository,Mockito.times(1)).save(troca);
+        Mockito.verify(trocaRepository, Mockito.times(1)).save(troca);
     }
 
 
