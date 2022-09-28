@@ -1,10 +1,12 @@
 package com.modulo6.miniprojetoRecirend.model;
 
 import com.modulo6.miniprojetoRecirend.Enum.Marca;
+import com.modulo6.miniprojetoRecirend.Enum.PontosDeColeta;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -26,8 +28,8 @@ public class CadastroEmbalagemModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "o número de série deve ser preenchido")
+    @Length@Length(min = 8,max = 8,message = "O número de série deve conter 8 caracteres.")
     @Column(unique = true)
     private String numeroDeSerie;
 
@@ -35,7 +37,6 @@ public class CadastroEmbalagemModel implements Serializable {
     @Enumerated(EnumType.STRING)
     private Marca marca;
 
-    @NotNull
     private LocalDate dataDoCadastro = LocalDate.now();
 
     @ManyToOne
