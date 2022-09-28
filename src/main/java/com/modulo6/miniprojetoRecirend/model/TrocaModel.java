@@ -38,6 +38,6 @@ public class TrocaModel {
     private LocalDate dataDeCadastro;
 
     @ManyToOne
-    private UsuarioModel usuarioModel;
+    private UsuarioModel usuario;
 
 }
