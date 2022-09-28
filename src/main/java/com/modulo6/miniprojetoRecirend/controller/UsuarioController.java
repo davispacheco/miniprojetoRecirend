@@ -37,8 +37,8 @@ UsuarioModel usuario = usuarioService.cadastrar(dto.converterParaObjeto());
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<UsuarioRespostaGeralDTO> alterarUsuario(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
-        UsuarioModel usuario = usuarioService.alterar(dto.converterParaObjeto());
+    public ResponseEntity<UsuarioRespostaGeralDTO> alterarUsuario(@RequestBody UsuarioModel usuarioModel, @PathVariable Long id) {
+        UsuarioModel usuario = usuarioService.alterar(usuarioModel);
         return ResponseEntity.ok(UsuarioRespostaGeralDTO.converterParaDTO(usuario));
     }
 
