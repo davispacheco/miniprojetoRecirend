@@ -20,7 +20,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CadastroEmbalagemModel implements Serializable {
+public class EmbalagemModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
