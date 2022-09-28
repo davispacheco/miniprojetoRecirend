@@ -22,5 +22,6 @@ public class EnderecoModel {
     private String bairro;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private UsuarioModel usuario;
 }

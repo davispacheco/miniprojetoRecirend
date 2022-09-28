@@ -38,6 +38,7 @@ public class TrocaModel {
     private LocalDate dataDeCadastro;
 
     @ManyToOne
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private UsuarioModel usuario;
 
 }

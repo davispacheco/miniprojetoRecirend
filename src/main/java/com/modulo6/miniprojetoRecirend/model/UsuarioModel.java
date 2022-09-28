@@ -36,7 +36,6 @@ public class UsuarioModel {
 
     private Long pontuacao;
 
-
     public UsuarioModel(String nomeUsuario, String cpf, String email, String senha) {
         this.nomeUsuario = nomeUsuario;
         this.cpf = cpf;
@@ -52,5 +51,9 @@ public class UsuarioModel {
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     List<EnderecoModel> enderecoModels;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    List<TrocaModel> trocaModel;
 
 }
