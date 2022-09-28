@@ -1,5 +1,6 @@
 package com.modulo6.miniprojetoRecirend.DTO;
 
+import com.modulo6.miniprojetoRecirend.model.EnderecoModel;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,10 @@ public class UsuarioRespostaEspecificaDTO {
 
     private Long pontuacao;
 
+    private List<EnderecoModel> enderecos;
 
     public static UsuarioRespostaEspecificaDTO converterParaDTO(UsuarioModel usuario) {
-        return new UsuarioRespostaEspecificaDTO(usuario.getId(), usuario.getNomeUsuario(), usuario.getCpf(), usuario.getEmail(), usuario.getPontuacao());
+        return new UsuarioRespostaEspecificaDTO(usuario.getId(), usuario.getNomeUsuario(), usuario.getCpf(), usuario.getEmail(), usuario.getPontuacao(), usuario.getEnderecos());
     }
 
     public static List<UsuarioRespostaEspecificaDTO> converterLista(List<UsuarioModel> usuarios) {
