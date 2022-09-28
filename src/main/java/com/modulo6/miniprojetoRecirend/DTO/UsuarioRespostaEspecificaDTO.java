@@ -33,7 +33,7 @@ public class UsuarioRespostaEspecificaDTO {
     public static List<UsuarioRespostaEspecificaDTO> converterLista(List<UsuarioModel> usuarios) {
         List<UsuarioRespostaEspecificaDTO> novaLista = new ArrayList<>();
         for (UsuarioModel usuario : usuarios) {
-            UsuarioRespostaEspecificaDTO novoUsuario = new UsuarioRespostaEspecificaDTO(usuario.getId(), usuario.getNomeUsuario(), usuario.getCpf(), usuario.getEmail(), usuario.getPontuacao());
+            UsuarioRespostaEspecificaDTO novoUsuario = new UsuarioRespostaEspecificaDTO(usuario.getId(), usuario.getNomeUsuario(), usuario.getCpf(), usuario.getEmail(), usuario.getPontuacao(), usuario.getEnderecos());
             novaLista.add(novoUsuario);
         }
         return novaLista;
