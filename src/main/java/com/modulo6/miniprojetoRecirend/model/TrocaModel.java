@@ -22,19 +22,20 @@ public class TrocaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long trocaId;
+    private Long id;
 
-    @NotNull
+    @NotNull(message = "Produto deve ser preenchido.")
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ProdutosTroca produto;
 
-    @NotNull
+    @NotNull(message = "Ponto de coleta deve ser preenchido.")
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private PontosDeColeta pontosDeColeta;
 
-
     @Column(length = 15, nullable = false)
-    private LocalDate dataDeCadastro = LocalDate.now();
+    private LocalDate dataDeCadastro;
 
     @ManyToOne
     private UsuarioModel usuarioModel;
