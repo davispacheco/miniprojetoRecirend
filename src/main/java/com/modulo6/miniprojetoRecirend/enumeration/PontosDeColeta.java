@@ -1,4 +1,4 @@
-package com.modulo6.miniprojetoRecirend.Enum;
+package com.modulo6.miniprojetoRecirend.enumeration;
 
 public enum PontosDeColeta {
     SAO_PAULO,

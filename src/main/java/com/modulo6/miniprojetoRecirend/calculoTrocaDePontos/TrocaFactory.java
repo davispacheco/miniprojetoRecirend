@@ -3,7 +3,7 @@ package com.modulo6.miniprojetoRecirend.calculoTrocaDePontos;
 import com.modulo6.miniprojetoRecirend.model.TrocaModel;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 
-import static com.modulo6.miniprojetoRecirend.Enum.ProdutosTroca.*;
+import static com.modulo6.miniprojetoRecirend.enumeration.ProdutosTroca.*;
 
 public class TrocaFactory {
     public ICalculoTroca trocaDePontosPorBeneficio(TrocaModel trocaModel, UsuarioModel usuarioModel){

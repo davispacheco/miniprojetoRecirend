@@ -1,7 +1,6 @@
 package com.modulo6.miniprojetoRecirend.model;
 
-import com.modulo6.miniprojetoRecirend.Enum.Marca;
-import com.modulo6.miniprojetoRecirend.Enum.PontosDeColeta;
+import com.modulo6.miniprojetoRecirend.enumeration.Marca;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

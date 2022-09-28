@@ -1,7 +1,7 @@
 package com.modulo6.miniprojetoRecirend.model;
 
-import com.modulo6.miniprojetoRecirend.Enum.PontosDeColeta;
-import com.modulo6.miniprojetoRecirend.Enum.ProdutosTroca;
+import com.modulo6.miniprojetoRecirend.enumeration.PontosDeColeta;
+import com.modulo6.miniprojetoRecirend.enumeration.ProdutosTroca;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
