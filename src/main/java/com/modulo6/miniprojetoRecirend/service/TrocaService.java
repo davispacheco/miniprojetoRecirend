@@ -7,6 +7,7 @@ import com.modulo6.miniprojetoRecirend.repository.TrocaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class TrocaService {
 
     public TrocaModel registraTroca(TrocaModel trocaModel, Long id, TrocaFactory troca) {
         Optional<UsuarioModel> result = usuarioService.buscarPorId(id);
+        trocaModel.setDataDeCadastro(LocalDate.now());
         var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel, result.get()).calculoTrocaPontos(result.get());
         result.get().setPontuacao(pontuacao);
 
