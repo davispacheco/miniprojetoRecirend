@@ -4,6 +4,7 @@ import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import net.bytebuddy.dynamic.DynamicType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,5 +34,11 @@ public class UsuarioRespostaEspecificaDTO {
             novaLista.add(novoUsuario);
         }
         return novaLista;
+    }
+
+    public static Optional<UsuarioRespostaEspecificaDTO> converterOptional(Optional<UsuarioModel> usuario) {
+        UsuarioRespostaEspecificaDTO novoUsuario = UsuarioRespostaEspecificaDTO.converterParaDTO(usuario.get());
+        Optional<UsuarioRespostaEspecificaDTO> novaOptional = Optional.of(novoUsuario);
+        return novaOptional;
     }
 }

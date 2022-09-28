@@ -1,5 +1,6 @@
 package com.modulo6.miniprojetoRecirend.service;
 
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaEspecificaDTO;
 import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaGeralDTO;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.repository.UsuarioRepository;
@@ -19,8 +20,9 @@ public class UsuarioService {
         return UsuarioRespostaGeralDTO.converterLista(usuarios);
     }
 
-    public Optional<UsuarioModel> buscarPorId(Long codigo) {
-        return usuarioRepository.findById(codigo);
+    public Optional<UsuarioRespostaEspecificaDTO> buscarPorId(Long codigo) {
+        Optional<UsuarioModel> usuario = usuarioRepository.findById(codigo);
+        return UsuarioRespostaEspecificaDTO.converterOptional(usuario);
     }
 
     public UsuarioModel cadastrar(UsuarioModel usuarioModel) {

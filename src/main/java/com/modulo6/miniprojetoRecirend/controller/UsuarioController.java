@@ -1,6 +1,7 @@
 package com.modulo6.miniprojetoRecirend.controller;
 
 import com.modulo6.miniprojetoRecirend.DTO.UsuarioDTO;
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaEspecificaDTO;
 import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaGeralDTO;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.service.UsuarioService;
@@ -25,7 +26,7 @@ public class UsuarioController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<Optional<UsuarioModel>> buscarUsuarioPorId(@PathVariable Long id) {
+    public ResponseEntity<Optional<UsuarioRespostaEspecificaDTO>> buscarUsuarioPorId(@PathVariable Long id) {
         return ResponseEntity.ok(usuarioService.buscarPorId(id));
     }
 

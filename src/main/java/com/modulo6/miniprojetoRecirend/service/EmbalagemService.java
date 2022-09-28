@@ -1,8 +1,10 @@
 package com.modulo6.miniprojetoRecirend.service;
 
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaEspecificaDTO;
 import com.modulo6.miniprojetoRecirend.model.EmbalagemModel;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.repository.EmbalagemRepository;
+import com.modulo6.miniprojetoRecirend.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,7 @@ public class EmbalagemService {
     private EmbalagemRepository embalagemRepository;
 
     @Autowired
-    private UsuarioService usuarioService;
+    private UsuarioRepository usuarioRepository;
 
     public List<EmbalagemModel> buscarCadastros() {
         return embalagemRepository.findAll();
@@ -29,7 +31,7 @@ public class EmbalagemService {
 
     public EmbalagemModel cadastrar(EmbalagemModel embalagemModel, Long id) {
 
-        Optional<UsuarioModel> result = usuarioService.buscarPorId(id);
+        Optional<UsuarioModel> result = usuarioRepository.findById(id);
         result.get().acrescimoPontuacao();
         embalagemModel.setUsuario(result.get());
 
