@@ -1,5 +1,6 @@
 package com.modulo6.miniprojetoRecirend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "usuarios")
@@ -34,6 +36,7 @@ public class UsuarioModel {
 
     private Long pontuacao;
 
+
     public UsuarioModel(String nomeUsuario, String cpf, String email, String senha) {
         this.nomeUsuario = nomeUsuario;
         this.cpf = cpf;
@@ -45,5 +48,9 @@ public class UsuarioModel {
         Long  pontuacaoTotal = getPontuacao()+1500;
         setPontuacao(pontuacaoTotal);
     }
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    List<EnderecoModel> enderecoModels;
 
 }

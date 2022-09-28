@@ -17,9 +17,10 @@ public class EnderecoModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEndereco;
 
-    private String Logradouro;
+    private String logradouro;
 
     private String bairro;
 
-    // private Usuariomodel usuariomodel;
+    @ManyToOne
+    private UsuarioModel usuario;
 }
