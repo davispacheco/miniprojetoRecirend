@@ -14,6 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,6 +62,11 @@ class TrocaServiceTest {
 
     @Test
     void buscaId() {
+        TrocaModel trocaModel = new TrocaModel();
+        trocaModel.setId(1L);
+        Mockito.when(trocaRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(trocaModel));
+        var status = trocaService.buscaId(1L);
+        Assertions.assertEquals(status.get().getId(),trocaModel.getId());
     }
 
     @Test
