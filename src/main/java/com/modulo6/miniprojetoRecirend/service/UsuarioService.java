@@ -1,6 +1,6 @@
 package com.modulo6.miniprojetoRecirend.service;
 
-import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaDTO;
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaGeralDTO;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +14,9 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public List<UsuarioRespostaDTO> buscarTodos() {
+    public List<UsuarioRespostaGeralDTO> buscarTodos() {
         List<UsuarioModel> usuarios = usuarioRepository.findAll();
-        return UsuarioRespostaDTO.converterLista(usuarios);
+        return UsuarioRespostaGeralDTO.converterLista(usuarios);
     }
 
     public Optional<UsuarioModel> buscarPorId(Long codigo) {

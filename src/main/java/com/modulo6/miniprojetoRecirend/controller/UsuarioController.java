@@ -1,7 +1,7 @@
 package com.modulo6.miniprojetoRecirend.controller;
 
 import com.modulo6.miniprojetoRecirend.DTO.UsuarioDTO;
-import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaDTO;
+import com.modulo6.miniprojetoRecirend.DTO.UsuarioRespostaGeralDTO;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<UsuarioRespostaDTO>> buscarTodosUsuarios() {
+    public ResponseEntity<List<UsuarioRespostaGeralDTO>> buscarTodosUsuarios() {
         return ResponseEntity.ok(usuarioService.buscarTodos());
     }
 
@@ -30,15 +30,15 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<UsuarioRespostaDTO> cadastrarUsuario(@Valid @RequestBody UsuarioDTO dto) {
+    public ResponseEntity<UsuarioRespostaGeralDTO> cadastrarUsuario(@Valid @RequestBody UsuarioDTO dto) {
 UsuarioModel usuario = usuarioService.cadastrar(dto.converterParaObjeto());
-        return new ResponseEntity<>(UsuarioRespostaDTO.converterParaDTO(usuario), HttpStatus.CREATED);
+        return new ResponseEntity<>(UsuarioRespostaGeralDTO.converterParaDTO(usuario), HttpStatus.CREATED);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<UsuarioRespostaDTO> alterarUsuario(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
+    public ResponseEntity<UsuarioRespostaGeralDTO> alterarUsuario(@RequestBody UsuarioDTO dto, @PathVariable Long id) {
         UsuarioModel usuario = usuarioService.alterar(dto.converterParaObjeto());
-        return ResponseEntity.ok(UsuarioRespostaDTO.converterParaDTO(usuario));
+        return ResponseEntity.ok(UsuarioRespostaGeralDTO.converterParaDTO(usuario));
     }
 
     @DeleteMapping(path = " /{id}")
