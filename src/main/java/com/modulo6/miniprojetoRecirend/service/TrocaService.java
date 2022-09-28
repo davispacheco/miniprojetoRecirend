@@ -12,23 +12,23 @@ import java.util.Optional;
 
 @Service
 public class TrocaService {
-
     @Autowired
     private TrocaRepository trocaRepository;
 
     @Autowired
     UsuarioService service;
 
-
     public TrocaModel registraTroca(TrocaModel trocaModel, Long id){
 
         TrocaFactory troca = new TrocaFactory();
+//        Optional<UsuarioModel> result =  service.buscarPorId(id);
+//        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get());
+//        result.get().setPontuacao(pontuacao);
         Optional<UsuarioModel> result =  service.buscarPorId(id);
-        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get());
+        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get()).calculoTrocaPontos(result.get());
         result.get().setPontuacao(pontuacao);
 
         return trocaRepository.save(trocaModel);
-
     }
 
     public List<TrocaModel> todaAsTroca(){
