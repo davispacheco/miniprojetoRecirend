@@ -23,6 +23,7 @@ public class UsuarioRespostaEspecificaDTO {
 
     private Long pontuacao;
 
+
     public static UsuarioRespostaEspecificaDTO converterParaDTO(UsuarioModel usuario) {
         return new UsuarioRespostaEspecificaDTO(usuario.getId(), usuario.getNomeUsuario(), usuario.getCpf(), usuario.getEmail(), usuario.getPontuacao());
     }

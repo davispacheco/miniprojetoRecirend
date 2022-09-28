@@ -36,6 +36,14 @@ public class UsuarioModel {
 
     private Long pontuacao;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    List<EnderecoModel> enderecos;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    List<TrocaModel> trocas;
+
     public UsuarioModel(String nomeUsuario, String cpf, String email, String senha) {
         this.nomeUsuario = nomeUsuario;
         this.cpf = cpf;
@@ -43,17 +51,8 @@ public class UsuarioModel {
         this.senha = senha;
     }
 
-    public void acrescimoPontuacao(){
-        Long  pontuacaoTotal = getPontuacao()+1500;
+    public void acrescimoPontuacao() {
+        Long pontuacaoTotal = getPontuacao() + 1500;
         setPontuacao(pontuacaoTotal);
     }
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    List<EnderecoModel> enderecoModels;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "usuario")
-    List<TrocaModel> trocaModel;
-
 }
