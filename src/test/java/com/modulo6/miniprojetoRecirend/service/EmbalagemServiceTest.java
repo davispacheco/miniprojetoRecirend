@@ -3,14 +3,17 @@ package com.modulo6.miniprojetoRecirend.service;
 import com.modulo6.miniprojetoRecirend.model.EmbalagemModel;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.repository.EmbalagemRepository;
+import com.modulo6.miniprojetoRecirend.repository.UsuarioRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -44,7 +47,6 @@ class EmbalagemServiceTest {
         LocalDate data = LocalDate.now();
         embalagemModel = new EmbalagemModel(1L,"12345678",LAYS,data,usuario);
     }
-
 
     @Test
     void buscarCadastros() {
