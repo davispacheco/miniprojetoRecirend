@@ -21,9 +21,7 @@ public class TrocaService {
     public TrocaModel registraTroca(TrocaModel trocaModel, Long id){
 
         TrocaFactory troca = new TrocaFactory();
-//        Optional<UsuarioModel> result =  service.buscarPorId(id);
-//        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get());
-//        result.get().setPontuacao(pontuacao);
+
         Optional<UsuarioModel> result =  service.buscarPorId(id);
         var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get()).calculoTrocaPontos(result.get());
         result.get().setPontuacao(pontuacao);
