@@ -33,10 +33,19 @@ class TrocaServiceTest {
 
     private UsuarioModel usuarioModel;
 
+    private TrocaModel troca;
+
     @BeforeEach
     private void iniciarTeste(){
         MockitoAnnotations.openMocks(this);
         usuarioModel = new UsuarioModel("Joauim", "73166984038","joaquim@gmail.com.br", "teste123");
+    }
+
+    @Test
+    void registraTroca() {
+        Mockito.when(trocaRepository.save(troca)).thenReturn(troca);
+        trocaService.registraTroca(troca);
+        Mockito.verify(trocaRepository,Mockito.times(1)).save(troca);
     }
 
 
@@ -56,9 +65,15 @@ class TrocaServiceTest {
 
     @Test
     void alteraNovaTroca() {
+        Mockito.when(trocaRepository.save(troca)).thenReturn(troca);
+        trocaService.alteraNovaTroca(troca);
+        Mockito.verify(trocaRepository, Mockito.times(1)).save(troca);
+
     }
 
     @Test
     void deleteTrocaId() {
+        trocaService.deleteTrocaId(troca.getId());
+        Mockito.verify(trocaRepository,Mockito.times(1)).deleteById(troca.getId());
     }
 }

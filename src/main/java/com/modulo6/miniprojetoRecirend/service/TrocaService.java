@@ -47,4 +47,6 @@ public class TrocaService {
     }
 
 
+    public void registraTroca(TrocaModel trocaModel) {
+    }
 }
