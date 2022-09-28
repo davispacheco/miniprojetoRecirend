@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +26,7 @@ public class EnderecoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EnderecoModel cadastrarEndereco (@RequestBody EnderecoModel enderecoModel) {
+    public EnderecoModel cadastrarEndereco (@Valid @RequestBody EnderecoModel enderecoModel) {
         return enderecoService.cadastrarEndereco(enderecoModel);
     }
 
