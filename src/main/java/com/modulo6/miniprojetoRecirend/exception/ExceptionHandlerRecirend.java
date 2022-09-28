@@ -40,10 +40,6 @@ public class ExceptionHandlerRecirend extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(ex, new MensagensErroDTO(mensagem), headers, HttpStatus.BAD_REQUEST, request);
     }
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<String> exceptionHandlerContaNaoCadastrada(DataIntegrityViolationException ex){
-        return new ResponseEntity<>("Número de série da embalagem já cadastrado.", HttpStatus.CONFLICT);
-    }
 
     @Getter
     @Setter
