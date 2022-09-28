@@ -41,7 +41,7 @@ public class TrocaController {
 
     @PutMapping(path = "/troca/{id}")
     ResponseEntity<TrocaModel>alterarTroca (@RequestBody TrocaModel altereTroca, @PathVariable Long id){
-        altereTroca.setTrocaId(id);
+        altereTroca.setId(id);
         return ResponseEntity.ok(trocaService.alteraNovaTroca(altereTroca));
 
     }

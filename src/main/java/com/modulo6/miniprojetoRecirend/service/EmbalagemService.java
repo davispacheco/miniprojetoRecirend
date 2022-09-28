@@ -6,6 +6,7 @@ import com.modulo6.miniprojetoRecirend.repository.EmbalagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,25 +14,27 @@ import java.util.Optional;
 public class EmbalagemService {
 
     @Autowired
-    EmbalagemRepository repository;
+    private EmbalagemRepository embalagemRepository;
 
     @Autowired
-    UsuarioService service;
+    private UsuarioService usuarioService;
 
-    public List<EmbalagemModel> buscarCadastros(){
-        return repository.findAll();
+    public List<EmbalagemModel> buscarCadastros() {
+        return embalagemRepository.findAll();
     }
 
-    public Optional<EmbalagemModel> buscarCadastroId(Long id){
-        return repository.findById(id);
+    public Optional<EmbalagemModel> buscarCadastroId(Long id) {
+        return embalagemRepository.findById(id);
     }
 
-    public EmbalagemModel cadastrar(EmbalagemModel embalagemModel, Long id){
+    public EmbalagemModel cadastrar(EmbalagemModel embalagemModel, Long id) {
 
-       Optional<UsuarioModel> result =  service.buscarPorId(id);
+        Optional<UsuarioModel> result = usuarioService.buscarPorId(id);
         result.get().acrescimoPontuacao();
-       embalagemModel.setUsuarioModel(result.get());
+        embalagemModel.setUsuario(result.get());
 
-        return repository.save(embalagemModel);
+        embalagemModel.setDataDoCadastro(LocalDate.now());
+
+        return embalagemRepository.save(embalagemModel);
     }
 }
