@@ -14,7 +14,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +43,6 @@ class EmbalagemServiceTest {
         LocalDate data = LocalDate.now();
         embalagemModel = new EmbalagemModel(1L,"12345678",LAYS,data,usuario);
     }
-
 
     @Test
     void buscarCadastros() {
