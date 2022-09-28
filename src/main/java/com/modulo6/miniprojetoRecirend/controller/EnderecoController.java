@@ -29,14 +29,14 @@ public class EnderecoController {
         return enderecoService.cadastrarEndereco(enderecoModel);
     }
 
-    @PutMapping(path = "/{idEndereco}")
+    @PutMapping(path = "/{id}")
     public EnderecoModel alterarEndereco (@RequestBody EnderecoModel enderecoModel){
         return enderecoService.alterarEndereco(enderecoModel);
     }
 
-   @DeleteMapping (path = "/{idEndereco}")
-    public void deletarEndereco (@PathVariable Long idEndereco){
-        enderecoService.deletarEndereco(idEndereco);
+   @DeleteMapping (path = "/{id}")
+    public void deletarEndereco (@PathVariable Long id){
+        enderecoService.deletarEndereco(id);
    }
 
 

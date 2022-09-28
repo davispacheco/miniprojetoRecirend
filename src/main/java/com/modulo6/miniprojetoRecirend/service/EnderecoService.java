@@ -25,7 +25,7 @@ public class EnderecoService {
         return enderecoRepository.save(enderecoModel);
     }
 
-    public void deletarEndereco (Long idEndereco){
-        enderecoRepository.deleteById(idEndereco);
+    public void deletarEndereco (Long id){
+        enderecoRepository.deleteById(id);
     }
 }

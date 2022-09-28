@@ -15,7 +15,7 @@ public class EnderecoModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEndereco;
+    private Long id;
 
     private String logradouro;
 
