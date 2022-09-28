@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "f1f07dc2-44eb-40de-8806-1cf057a4803a",
+		"_postman_id": "665c11ef-2356-427a-a62b-1eea60a0c97d",
 		"name": "Mini Projeto Recirende",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22744326"
 	},
 	"item": [
 		{
@@ -84,7 +85,18 @@
 			"name": "Mostrar Enderecos",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/enderecos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"enderecos"
+					]
+				}
 			},
 			"response": []
 		},
@@ -191,7 +203,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 7,\r\n    \"nomeUsuario\":\"Victoria\",\r\n    \"cpf\":\"57638575008\",\r\n    \"email\":\"vitoria@email.com\",\r\n    \"senha\":\"12345678\"\r\n}",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"nomeUsuario\":\"Tansen Silva\",\r\n    \"cpf\":\"21650785046\",\r\n    \"email\":\"tanssen@email.com\",\r\n    \"senha\":\"12345678\"\r\n}\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -199,7 +211,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/usuarios/7",
+					"raw": "http://localhost:8080/usuarios/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -207,7 +219,7 @@
 					"port": "8080",
 					"path": [
 						"usuarios",
-						"7"
+						"1"
 					]
 				}
 			},
@@ -220,7 +232,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 2,\r\n    \"logradouro\": \"Rua do tijolo, n60\",\r\n    \"bairro\": \"areia\"\r\n    \r\n}",
+					"raw": "{\r\n    \"id\":1,\r\n    \"logradouro\": \"Rua da Macaroca, n 234, proximo do xique-xique\",\r\n    \"bairro\": \"areia\",\r\n    \"pontoReferencia\": \"Prox mercadinho da Cris\",\r\n    \"cep\": \"56300000\",\r\n    \"cidade\": \"Juazeiro\",\r\n    \"estado\": \"BAHIA\",\r\n    \"usuario\": {\r\n        \"id\": 1\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
