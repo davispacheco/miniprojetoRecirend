@@ -16,37 +16,32 @@ public class TrocaService {
     private TrocaRepository trocaRepository;
 
     @Autowired
-    UsuarioService service;
+    private UsuarioService usuarioService;
 
-    public TrocaModel registraTroca(TrocaModel trocaModel, Long id){
-
-        TrocaFactory troca = new TrocaFactory();
-
-        Optional<UsuarioModel> result =  service.buscarPorId(id);
-        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel,result.get()).calculoTrocaPontos(result.get());
+    public TrocaModel registraTroca(TrocaModel trocaModel, Long id, TrocaFactory troca) {
+        Optional<UsuarioModel> result = usuarioService.buscarPorId(id);
+        var pontuacao = troca.trocaDePontosPorBeneficio(trocaModel, result.get()).calculoTrocaPontos(result.get());
         result.get().setPontuacao(pontuacao);
 
         return trocaRepository.save(trocaModel);
     }
 
-    public List<TrocaModel> todaAsTroca(){
+    public List<TrocaModel> todaAsTroca() {
         return trocaRepository.findAll();
     }
 
-    public Optional<TrocaModel> buscaId(long id){
+    public Optional<TrocaModel> buscaId(long id) {
         return trocaRepository.findById(id);
     }
 
-    public TrocaModel alteraNovaTroca(TrocaModel trocaModel){
+    public TrocaModel alteraNovaTroca(TrocaModel trocaModel) {
         return trocaRepository.save(trocaModel);
 
     }
+
     public void deleteTrocaId(Long id) {
         trocaRepository.deleteById(id);
     }
-
-
-
 
 
 }
