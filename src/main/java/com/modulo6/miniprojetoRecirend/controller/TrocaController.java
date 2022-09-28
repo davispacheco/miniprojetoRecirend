@@ -1,5 +1,6 @@
 package com.modulo6.miniprojetoRecirend.controller;
 
+import com.modulo6.miniprojetoRecirend.calculoTrocaDePontos.TrocaFactory;
 import com.modulo6.miniprojetoRecirend.model.TrocaModel;
 import com.modulo6.miniprojetoRecirend.service.TrocaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class TrocaController {
 
     // Cadastrar a troca//
     @PostMapping(path = "/troca/{id}")
-    public ResponseEntity <TrocaModel> cadastraTroca(@RequestBody TrocaModel cadastreTroca,@PathVariable Long id) {
-        TrocaModel novaTroca = trocaService.registraTroca(cadastreTroca,id);
+    public ResponseEntity <TrocaModel> cadastraTroca(@RequestBody TrocaModel cadastreTroca, @PathVariable Long id, TrocaFactory troca) {
+        TrocaModel novaTroca = trocaService.registraTroca(cadastreTroca, id, troca);
         return new ResponseEntity<>(novaTroca, HttpStatus.CREATED);
     }
 
