@@ -47,6 +47,7 @@ public class TrocaService {
     }
 
 
-    public void registraTroca(TrocaModel trocaModel) {
+    public TrocaModel registraTroca(TrocaModel troca) {
+        return trocaRepository.save(troca);
     }
 }

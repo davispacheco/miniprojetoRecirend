@@ -48,7 +48,7 @@ class TrocaServiceTest {
 
     @Test
     void registraTroca() {
-        Mockito.when(trocaRepository.existsById(Mockito.anyLong())).thenReturn(false);
+        Mockito.when(trocaRepository.save(troca)).thenReturn(troca);
         trocaService.registraTroca(troca);
         Mockito.verify(trocaRepository, Mockito.times(1)).save(troca);
     }
@@ -82,7 +82,7 @@ class TrocaServiceTest {
     }
 
     @Test
-    void deleteTrocaId() {
+    void deletarEndereco() {
         trocaService.deleteTrocaId(troca.getId());
         Mockito.verify(trocaRepository,Mockito.times(1)).deleteById(troca.getId());
     }
