@@ -1,5 +1,7 @@
 package com.modulo6.miniprojetoRecirend.service;
 
+import com.modulo6.miniprojetoRecirend.enumeration.PontosDeColeta;
+import com.modulo6.miniprojetoRecirend.enumeration.ProdutosTroca;
 import com.modulo6.miniprojetoRecirend.model.TrocaModel;
 import com.modulo6.miniprojetoRecirend.model.UsuarioModel;
 import com.modulo6.miniprojetoRecirend.repository.TrocaRepository;
@@ -12,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,6 +43,7 @@ class TrocaServiceTest {
     private void iniciarTeste(){
         MockitoAnnotations.openMocks(this);
         usuarioModel = new UsuarioModel("Joauim", "73166984038","joaquim@gmail.com.br", "teste123");
+        troca = new TrocaModel(1L, ProdutosTroca.CADEIRA_GAMER, PontosDeColeta.BAHIA, LocalDate.parse("2022-09-28"), usuarioModel);
     }
 
     @Test
